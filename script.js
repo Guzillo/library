@@ -10,3 +10,7 @@ function Book(title, author, pagesCount, releaseYear, readStatus) {
 }
 
 const generateId = () => crypto.randomUUID();
+
+function addBookToLibrary(title, author, pagesCount, releaseYear, readStatus) {
+    myLibrary.push(new Book(title, author, pagesCount, releaseYear, readStatus));
+}
