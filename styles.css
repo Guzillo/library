@@ -95,3 +95,22 @@ body {
     padding: 10px;
     margin: 15px;
 }
+
+button.close {
+    border: 1px solid red;
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 15px;
+    top: 5px;
+}
+
+#close-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}

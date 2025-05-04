@@ -74,7 +74,6 @@ const toggleVisibility = () => {
     addBookModal.classList.toggle('hidden');
 }
 toggleVisibility();
-
 addBookBtn.addEventListener('click', toggleVisibility);
 closeBtn.addEventListener('click', toggleVisibility);
 
