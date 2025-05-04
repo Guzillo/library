@@ -37,13 +37,27 @@ function displayBooks() {
             <p id="book-author">author: ${author ? author : 'N/A'}</p>
             <p id="book-pages">Pages: ${pagesCount ? pagesCount : 'N/A'}</p>
             <p id="book-release-year">Release year: ${releaseYear ? releaseYear : 'N/A'}</p>
-            <p id="book-reading-status">Reading status: ${readStatus ? readStatus : 'N/A'}</p>
+            <button class="book-reading-status">${readStatus ? 'Read': 'To Read' }</button>
             <button class="remove-book-button">Remove book</button>
         </div>
         `
     }
     attachEventListenersToRemoveBookButtons();
+    attachEventListenerToReadingStatusButtons();
+}
 
+function attachEventListenerToReadingStatusButtons() {
+    const readingStatusButtons = document.querySelectorAll('.book-reading-status');
+    console.log(readingStatusButtons);
+    readingStatusButtons.forEach( (button) => {
+        button.addEventListener('click', (e) => {
+            const bookCard = e.target.closest('.book-card');
+            const bookReadingStatus = bookCard.readStatus;
+            // reverse status if clicked
+            button.textContent = bookReadingStatus ? 'To Read' : 'Read';
+            bookCard.readStatus = bookReadingStatus ? false : true;
+        })
+    })
 }
 
 function attachEventListenersToRemoveBookButtons() {
@@ -73,7 +87,7 @@ addBookForm.addEventListener('submit', (event) => {
     const pages = bookPagesInput.value;
     const releaseYear = bookReleaseYearInput.value;
     const readingStatus = bookReadingStatusCheckbox.checked;
-    addBookToLibrary(title, author, pages, releaseYear, readingStatus ? 'Read' : 'To Read');
+    addBookToLibrary(title, author, pages, releaseYear, readingStatus.checked);
     displayBooks();
     addBookModal.style.display = 'none';
     resetInputValues();
