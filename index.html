@@ -13,18 +13,20 @@
     <button id="add-book-button">Add a book</button>
     <div id="add-book-modal" class="modal">
         <div class="modal-content">
-            <button class="close">&times;</button>
-            <label for="book-title-input">Title</label>
-            <input type="text" name="book-title" id="book-title-input">
-            <label for="book-author-input">Author</label>
-            <input type="text" name="book-author" id="book-author-input">
-            <label for="book-pages-input">Pages</label>
-            <input type="number" id="book-pages">
-            <label for="book-release-year-input">Release year</label>
-            <input type="number" id="book-release-year-input">
-            <label for="book-reading-status-checkbox">Reading status</label>
-            <input type="checkbox" id="book-reading-status-checkbox">
-            <button type="submit">Submit</button>
+            <form id="add-book-form">
+                <button class="close">&times;</button>
+                <label for="book-title-input">Title</label>
+                <input type="text" name="book-title" id="book-title-input">
+                <label for="book-author-input">Author</label>
+                <input type="text" name="book-author" id="book-author-input">
+                <label for="book-pages-input">Pages</label>
+                <input type="number" id="book-pages">
+                <label for="book-release-year-input">Release year</label>
+                <input type="number" id="book-release-year-input">
+                <label for="book-reading-status-checkbox">Reading status</label>
+                <input type="checkbox" id="book-reading-status-checkbox">
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
 <script src="./script.js"></script>
