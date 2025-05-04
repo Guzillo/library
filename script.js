@@ -24,7 +24,7 @@ function displayBooks() {
             <p id="book-author">author: ${author}</p>
             <p id="book-pages">Pages: ${pagesCount}</p>
             <p id="book-release-year">Release year: ${releaseYear}</p>
-            <p id="book-read-status">Reading status: ${readStatus}</p>
+            <p id="book-reading-status">Reading status: ${readStatus}</p>
         </div>
         `
     }
