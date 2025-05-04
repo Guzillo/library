@@ -32,6 +32,7 @@ body {
 }
 
 #add-book-button {
+    margin: 5px;
     background-color: #04AA6D; /* Green */
     border: none;
     color: white;
@@ -52,4 +53,11 @@ body {
 
 #add-book-form > input{
     border: 1px solid black;
+}
+
+#add-book-form button[type='submit'] { 
+    border: 1px solid green;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 5px 0;
 }
