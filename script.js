@@ -11,7 +11,6 @@ const bookPagesInput = document.getElementById('book-pages-input');
 const bookReleaseYearInput = document.getElementById('book-release-year-input');
 const bookReadingStatusCheckbox = document.getElementById('book-reading-status-checkbox');
 const submitBtn = document.getElementById('submit-button');
-
 function Book(title, author, pagesCount, releaseYear, readStatus) {
     this.title = title;
     this.author = author;
@@ -74,6 +73,7 @@ function attachEventListenersToRemoveBookButtons() {
 const toggleVisibility = () => {
     addBookModal.classList.toggle('hidden');
 }
+toggleVisibility();
 
 addBookBtn.addEventListener('click', toggleVisibility);
 closeBtn.addEventListener('click', toggleVisibility);
