@@ -38,10 +38,24 @@ function displayBooks() {
             <p id="book-pages">Pages: ${pagesCount ? pagesCount : 'N/A'}</p>
             <p id="book-release-year">Release year: ${releaseYear ? releaseYear : 'N/A'}</p>
             <p id="book-reading-status">Reading status: ${readStatus ? readStatus : 'N/A'}</p>
-            <button >Remove book</button>
+            <button class="remove-book-button">Remove book</button>
         </div>
         `
     }
+    attachEventListenersToRemoveBookButtons();
+
+}
+
+function attachEventListenersToRemoveBookButtons() {
+    const removeBookButtons = document.querySelectorAll('.remove-book-button');
+    removeBookButtons.forEach( (button) => {
+        button.addEventListener('click', (e) => {
+            const bookCard = e.target.closest('.book-card');
+            const bookId = bookCard.getAttribute('data-id');
+            removeBookFromLibrary(bookId);
+            displayBooks();
+        })
+    })
 }
 
 addBookBtn.addEventListener('click', () => {
@@ -75,4 +89,9 @@ function resetInputValues() {
     bookPagesInput.value = '';
     bookReleaseYearInput.value = '';
     bookReadingStatusCheckbox.checked = false; 
+}
+
+function removeBookFromLibrary(id) {
+    const bookToRemoveIndex = myLibrary.findIndex( (book) => book.id === id);
+    myLibrary.splice(bookToRemoveIndex, 1);
 }
