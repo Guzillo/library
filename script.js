@@ -3,6 +3,15 @@ const booksContainer = document.getElementById('books-container');
 const addBookModal = document.getElementById('add-book-modal');
 const addBookBtn = document.getElementById('add-book-button');
 const closeBtn = document.getElementsByClassName('close')[0];
+
+const addBookForm = document.getElementById('add-book-form');
+const bookTitleInput = document.getElementById('book-title-input');
+const bookAuthorInput = document.getElementById('book-author-input');
+const bookPagesInput = document.getElementById('book-pages-input');
+const bookReleaseYearInput = document.getElementById('book-release-year-input');
+const bookReadingStatusCheckbox = document.getElementById('book-reading-status-checkbox');
+const submitBtn = document.getElementById('submit-button');
+
 function Book(title, author, pagesCount, releaseYear, readStatus) {
     this.title = title;
     this.author = author;
@@ -41,3 +50,14 @@ closeBtn.addEventListener('click', () => {
     addBookModal.style.display = 'none';
 });
 
+addBookForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const title = bookTitleInput.value;
+    const author = bookAuthorInput.value;
+    const pages = bookPagesInput.value;
+    const releaseYear = bookReleaseYearInput.value;
+    const readingStatus = bookReadingStatusCheckbox.checked;
+    addBookToLibrary(title, author, pages, releaseYear, readingStatus ? 'Read' : 'To Read');
+    displayBooks();
+    addBookModal.style.display = 'none';
+})
