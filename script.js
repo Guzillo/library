@@ -61,4 +61,17 @@ addBookForm.addEventListener('submit', (event) => {
     addBookToLibrary(title, author, pages, releaseYear, readingStatus ? 'Read' : 'To Read');
     displayBooks();
     addBookModal.style.display = 'none';
+    resetInputValues();
 })
+
+function resetInputValues() {
+    bookTitleInput.textContent = '';
+    bookAuthorInput.textContent = '';
+    bookPagesInput.textContent = '';
+
+    bookTitleInput.value = '';
+    bookAuthorInput.value = '';
+    bookPagesInput.value = '';
+    bookReleaseYearInput.value = '';
+    bookReadingStatusCheckbox.checked = false; 
+}
