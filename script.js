@@ -71,13 +71,12 @@ function attachEventListenersToRemoveBookButtons() {
     })
 }
 
-addBookBtn.addEventListener('click', () => {
-    addBookModal.style.display = 'block';
-})
+const toggleVisibility = () => {
+    addBookModal.classList.toggle('hidden');
+}
 
-closeBtn.addEventListener('click', () => {
-    addBookModal.style.display = 'none';
-});
+addBookBtn.addEventListener('click', toggleVisibility);
+closeBtn.addEventListener('click', toggleVisibility);
 
 addBookForm.addEventListener('submit', (event) => {
     event.preventDefault();

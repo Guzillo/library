@@ -19,8 +19,12 @@ body {
     align-items: center;
 }
 
+<<<<<<< Updated upstream
+.hidden {
+=======
 .modal {
-    display: none;
+>>>>>>> Stashed changes
+    visibility: hidden;
 }
 
 #books-container {
@@ -39,4 +43,17 @@ body {
     text-align: center;
     text-decoration: none;
     font-size: 16px;
+}
+
+.modal-content > #add-book-form{
+    display: flex;
+    flex-direction: column;
+    border: 3px solid orange;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+#add-book-form > input{
+    border: 1px solid black;
 }
