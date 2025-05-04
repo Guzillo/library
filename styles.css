@@ -43,6 +43,30 @@ body {
     font-size: 16px;
 }
 
+.book-card button.remove-book-button {
+    margin: 5px;
+    background-color: #9b143c54; /* Green */
+    border: none;
+    color: white;
+    padding: 2px 4px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.75rem;
+    border-radius: 15px;
+}
+
+.book-card button.book-reading-status {
+    margin: 5px;
+    border: none;
+    color: white;
+    padding: 2px 4px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.75rem;
+    border-radius: 15px;
+    color: black;
+}
+
 .modal-content > #add-book-form{
     display: flex;
     flex-direction: column;
