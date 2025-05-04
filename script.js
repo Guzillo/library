@@ -48,7 +48,6 @@ function displayBooks() {
 
 function attachEventListenerToReadingStatusButtons() {
     const readingStatusButtons = document.querySelectorAll('.book-reading-status');
-    console.log(readingStatusButtons);
     readingStatusButtons.forEach( (button) => {
         button.addEventListener('click', (e) => {
             const bookCard = e.target.closest('.book-card');
