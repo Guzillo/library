@@ -87,7 +87,7 @@ addBookForm.addEventListener('submit', (event) => {
     const readingStatus = bookReadingStatusCheckbox.checked;
     addBookToLibrary(title, author, pages, releaseYear, readingStatus.checked);
     displayBooks();
-    addBookModal.style.display = 'none';
+    toggleVisibility();
     resetInputValues();
 })
 
