@@ -19,11 +19,7 @@ body {
     align-items: center;
 }
 
-<<<<<<< Updated upstream
 .hidden {
-=======
-.modal {
->>>>>>> Stashed changes
     visibility: hidden;
 }
 
