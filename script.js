@@ -28,6 +28,7 @@ function addBookToLibrary(title, author, pagesCount, releaseYear, readStatus) {
 }
 
 function displayBooks() {
+    booksContainer.innerHTML = '';
     for(const {title, author, pagesCount, releaseYear, readStatus}of myLibrary) {
         booksContainer.innerHTML +=
         `
