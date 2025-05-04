@@ -18,7 +18,7 @@ function Book(title, author, pagesCount, releaseYear, readStatus) {
     this.pagesCount = pagesCount;
     this.releaseYear = releaseYear;
     this.readStatus = readStatus;
-    this.id = generateId;
+    this.id = generateId();
 }
 
 const generateId = () => crypto.randomUUID();
@@ -29,15 +29,16 @@ function addBookToLibrary(title, author, pagesCount, releaseYear, readStatus) {
 
 function displayBooks() {
     booksContainer.innerHTML = '';
-    for(const {title, author, pagesCount, releaseYear, readStatus}of myLibrary) {
+    for(const {title, author, pagesCount, releaseYear, readStatus, id}of myLibrary) {
         booksContainer.innerHTML +=
         `
-        <div class="book-card">
+        <div class="book-card" data-id="${id}">
             <h2 class="book-title">${title ? title : 'N/A'}</h2>
             <p id="book-author">author: ${author ? author : 'N/A'}</p>
             <p id="book-pages">Pages: ${pagesCount ? pagesCount : 'N/A'}</p>
             <p id="book-release-year">Release year: ${releaseYear ? releaseYear : 'N/A'}</p>
             <p id="book-reading-status">Reading status: ${readStatus ? readStatus : 'N/A'}</p>
+            <button >Remove book</button>
         </div>
         `
     }
