@@ -1,116 +1,194 @@
-/* css reset */
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    line-height: 1.4em; 
-    vertical-align: baseline;
-    text-decoration: none; 
-    outline: 0; 
-}
-
-body {
-    width: 80%;
-    margin: auto;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-}
-
-.hidden {
-    visibility: hidden;
-}
+   body {
+       width: 100vw;
+       min-height: 100vh;
+       margin: 0;
+       background: linear-gradient(120deg, #f8fafc 0%, #e0e7ef 100%);
+       font-family: 'Segoe UI', Arial, sans-serif;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+   }
 
 #books-container {
-    border-radius: 30px;
-    border: 2px solid black;
-    height: 80%;
-    margin: auto;
-    width: 100%;
+    border-radius: 24px;
+    border: none;
+    background: #fff;
+    box-shadow: 0 4px 32px rgba(30, 153, 190, 0.08), 0 1.5px 8px rgba(0,0,0,0.04);
+    padding: 32px;
+    margin: 32px 0 16px 0;
+    width: 90vw;
+    max-width: 1200px;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-}
-
-#add-book-button {
-    margin: 5px;
-    background-color: #04AA6D; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.book-card button.remove-book-button {
-    margin: 5px;
-    background-color: #9b143c54; /* Green */
-    border: none;
-    color: white;
-    padding: 2px 4px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 0.75rem;
-    border-radius: 15px;
-}
-
-.book-card button.book-reading-status {
-    margin: 5px;
-    border: none;
-    color: white;
-    padding: 2px 4px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 0.75rem;
-    border-radius: 15px;
-    color: black;
-}
-
-.modal-content > #add-book-form{
-    display: flex;
-    flex-direction: column;
-    border: 3px solid orange;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
-}
-
-#add-book-form > input{
-    border: 1px solid black;
-}
-
-#add-book-form button[type='submit'] { 
-    border: 1px solid green;
-    border-radius: 15px;
-    padding: 5px;
-    margin: 5px 0;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 32px;
 }
 
 .book-card {
-    width: fit-content;
-    height: fit-content;
-    border: 1px solid rgb(30, 153, 190);
-    border-radius: 15px;
-    padding: 10px;
-    margin: 15px;
+    background: #f4f8fb;
+    border: 1px solid #b6d6e6;
+    border-radius: 18px;
+    box-shadow: 0 2px 8px rgba(30, 153, 190, 0.07);
+    padding: 20px 18px 16px 18px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: box-shadow 0.2s;
+}
+.book-card:hover {
+    box-shadow: 0 6px 24px rgba(30, 153, 190, 0.13);
+}
+
+.book-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1e99be;
+    margin-bottom: 8px;
+}
+
+#book-author, #book-pages, #book-release-year {
+    font-size: 0.98rem;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.book-card button {
+    margin-top: 8px;
+    margin-right: 8px;
+    padding: 6px 16px;
+    border: none;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.book-card button.book-reading-status {
+    background: #e0f7e9;
+    color: #0a7c3a;
+    border: 1px solid #b2e5c7;
+}
+.book-card button.book-reading-status:hover {
+    background: #b2e5c7;
+}
+
+.book-card button.remove-book-button {
+    background: #ffeaea;
+    color: #b91c1c;
+    border: 1px solid #fca5a5;
+}
+.book-card button.remove-book-button:hover {
+    background: #fca5a5;
+    color: #fff;
+}
+
+#add-book-button {
+    margin: 10px 0 24px 0;
+    background: linear-gradient(90deg, #1e99be 60%, #04AA6D 100%);
+    border: none;
+    color: white;
+    padding: 16px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 18px;
+    box-shadow: 0 2px 8px rgba(30, 153, 190, 0.10);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+#add-book-button:hover {
+    background: linear-gradient(90deg, #04AA6D 60%, #1e99be 100%);
+}
+
+.modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(30, 153, 190, 0.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+.hidden {
+    display: none !important;
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 32px rgba(30, 153, 190, 0.13);
+    padding: 32px 40px;
+    min-width: 320px;
+    max-width: 95vw;
+}
+
+#add-book-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+#add-book-form label {
+    font-weight: 500;
+    color: #1e99be;
+    margin-bottom: 2px;
+}
+
+#add-book-form input[type="text"],
+#add-book-form input[type="number"] {
+    border: 1px solid #b6d6e6;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 1rem;
+    background: #f4f8fb;
+    margin-bottom: 6px;
+}
+
+#add-book-form input[type="checkbox"] {
+    accent-color: #1e99be;
+}
+
+#add-book-form button[type='submit'] {
+    background: #1e99be;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+#add-book-form button[type='submit']:hover {
+    background: #04AA6D;
 }
 
 button.close {
-    border: 1px solid red;
+    border: none;
+    background: #ffeaea;
+    color: #b91c1c;
     border-radius: 50%;
-    height: 15px;
-    width: 15px;
+    height: 28px;
+    width: 28px;
+    font-size: 1.3rem;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    right: 15px;
-    top: 5px;
+    right: -10px;
+    top: -10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+button.close:hover {
+    background: #fca5a5;
+    color: #fff;
 }
 
 #close-button-container {
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    margin-bottom: 8px;
 }
