@@ -11,16 +11,24 @@ const bookPagesInput = document.getElementById('book-pages-input');
 const bookReleaseYearInput = document.getElementById('book-release-year-input');
 const bookReadingStatusCheckbox = document.getElementById('book-reading-status-checkbox');
 const submitBtn = document.getElementById('submit-button');
-function Book(title, author, pagesCount, releaseYear, readStatus) {
-    this.title = title;
-    this.author = author;
-    this.pagesCount = pagesCount;
-    this.releaseYear = releaseYear;
-    this.readStatus = readStatus;
-    this.id = generateId();
-}
 
-const generateId = () => crypto.randomUUID();
+class Book {
+    static generateId = () => crypto.randomUUID();
+    #id;
+    constructor(title, author, pagesCount, releaseYear, readStatus) {
+        this.title = title;
+        this.author = author;
+        this.pagesCount = pagesCount;
+        this.releaseYear = releaseYear;
+        this.readStatus = readStatus;
+        this.#id = Book.generateId();
+    }
+
+    get id() {
+        return this.#id;
+    }
+
+}
 
 function addBookToLibrary(title, author, pagesCount, releaseYear, readStatus) {
     myLibrary.push(new Book(title, author, pagesCount, releaseYear, readStatus));
